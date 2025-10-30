@@ -3,7 +3,7 @@ from reddit_scraper import get_city_posts
 from nlp_analyzer import analyze_comment
 from nlp_filter import aggregate_data,clean_gemini_output
 from google_genai import analyze_text_with_gemini
-from cache_manager import load_cache
+from cache_manager import load_cache,save_cache
 
 app = FastAPI()
 
@@ -38,7 +38,7 @@ def analyze_city(city: str):
         if not combined_text:
             continue
 
-        ai_raw = analyze_text_with_gemini(combined_text)
+        ai_raw = analyze_text_with_gemini(combined_text , city)
         ai_summary = clean_gemini_output(ai_raw)
 
         insights.append({
@@ -48,4 +48,9 @@ def analyze_city(city: str):
             "summary": ai_summary
         })
 
-    return {"city": city, "insights": insights}
+        result = {"city": city, "insights": insights}
+
+    # 💾 Save to cache
+    save_cache(city, result)
+
+    return result

@@ -32,41 +32,44 @@ def aggregate_data(city, analyzed_comments):
 
     return output
 
-def clean_gemini_output(raw_text: str):
-    """Extracts and normalizes Gemini JSON output."""
-    if not raw_text:
-        return {}
 
-    # Step 1: Extract JSON-like part from markdown or text
-    match = re.search(r"\{[\s\S]*\}", raw_text)
+def clean_gemini_output(raw_text: str):
+    """
+    Cleans Gemini output like:
+    ```json
+    {
+        "city_overview": "...",
+        "top_recommendations": [...],
+        "major_complaints": [...]
+    }
+    ```
+    and returns a parsed Python dict.
+    """
+    if not raw_text:
+        return {"error": "Empty AI response"}
+
+    # Remove markdown fences and language hints
+    text = raw_text.strip()
+    text = re.sub(r"^```json\s*|\s*```$", "", text.strip())
+
+    # Extract the inner JSON (handles escaped \n)
+    text = text.replace("\\n", "\n").replace("\\\"", "\"").strip()
+
+    # Try to find the first valid JSON object
+    match = re.search(r"\{[\s\S]*\}", text)
     if not match:
-        return {"error": "Invalid AI output"}
+        return {"error": "No valid JSON found", "raw": raw_text}
+
+    json_str = match.group(0)
 
     try:
-        data = json.loads(match.group(0))
+        # Parse to Python dict
+        data = json.loads(json_str)
     except json.JSONDecodeError:
-        # Attempt to fix minor JSON errors (quotes, etc.)
-        cleaned = match.group(0).replace("'", '"')
-        try:
-            data = json.loads(cleaned)
-        except Exception:
-            return {"error": "Failed to parse AI JSON"}
+        # Attempt light cleaning
+        fixed = json_str.replace("'", '"')
+        data = json.loads(fixed)
 
-    # Step 2: Normalize key names
-    normalized = {
-        "intent": data.get("intent", "unknown"),
-        "restaurant_names": data.get("restaurant_names", []),
-        "popular_foods": data.get("popular_foods", []),
-        "overall_sentiment": data.get("overall_sentiment", "neutral"),
-        "summary": data.get("summary", "")
-    }
+    # Return the clean structure
+    return data
 
-    # Step 3: Fix capitalization for restaurant & food names
-    normalized["restaurant_names"] = [
-        r.title().strip() for r in normalized["restaurant_names"]
-    ]
-    normalized["popular_foods"] = [
-        f.title().strip() for f in normalized["popular_foods"]
-    ]
-
-    return normalized
