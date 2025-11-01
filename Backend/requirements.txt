@@ -1,8 +1,8 @@
-fastapi==0.95.0
-uvicorn[standard]==0.22.0
-python-dotenv
+fastapi
+uvicorn[standard]
 praw
 textblob
 google-generativeai
-slowapi              # optional rate-limiter
-sentry-sdk           # optional monitoring
+python-dotenv
+slowapi
+sentry-sdk

@@ -1,18 +1,42 @@
 import json, re
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware.base import BaseHTTPMiddleware
 from reddit_scraper import get_city_posts
 from nlp_analyzer import analyze_comment
 from nlp_filter import aggregate_data, clean_gemini_output
 from google_genai import analyze_text_with_gemini
 from cache_manager import load_cache, save_cache
 
-app = FastAPI()
+
+app = FastAPI(title="CityEatsInsight API")
 
 # CORS
+FRONTEND_ORIGINS = [
+    "http://localhost:5173",
+    "http://city-eats-insight.vercel.app/"
+]
+
+# Security headers middleware
+class SecurityHeadersMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request, call_next):
+        response = await call_next(request)
+        response.headers["X-Frame-Options"] = "DENY"
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["Strict-Transport-Security"] = "max-age=63072000; includeSubDomains; preload"
+        response.headers["Referrer-Policy"] = "no-referrer-when-downgrade"
+        return response
+
+app.add_middleware(SecurityHeadersMiddleware)
+
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
+
+# CORS Setup
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=FRONTEND_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
