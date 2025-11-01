@@ -106,5 +106,4 @@ def city_suggestions(query: str):
     return {"results": matches[:30]}
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))  # Railway provides PORT automatically
-    uvicorn.run("main:app", host="0.0.0.0", port=port)
+    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
