@@ -6,5 +6,4 @@ google-generativeai
 python-dotenv
 slowapi
 sentry-sdk
-os
-re
+
