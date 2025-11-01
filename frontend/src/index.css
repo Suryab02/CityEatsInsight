@@ -7,6 +7,25 @@
 html {
   scroll-behavior: smooth;
 }
+/* Add to your index.css or globals.css */
+:root {
+  --text-primary: 24 24 27; /* neutral-900 */
+  --text-secondary: 82 82 91; /* neutral-600 */
+  --text-muted: 113 113 122; /* neutral-500 */
+}
+
+.dark {
+  --text-primary: 250 250 250; /* neutral-50 */
+  --text-secondary: 161 161 170; /* neutral-400 */
+  --text-muted: 113 113 122; /* neutral-500 */
+}
+
+body {
+  color: rgb(var(--text-primary));
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+
 
 /* Required for shadcn */
 @layer base {

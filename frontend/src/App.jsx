@@ -1,24 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Accordionui from './components/Page/shadcn/Accordionui'  
-import {Card, CardContent} from "@/components/ui/card";
-import { Button } from "@/components/ui/button"
-
+import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import Navbar from "./components/Navbar";
+import CitySearch from "./pages/CitySearch";
+import CityInsights from "./pages/CityInsights";
 
 function App() {
+  const [data, setData] = useState(null);
+
   return (
-    <div className="min-h-screen bg-background text-foreground flex items-center justify-center p-4">
-      <Card className="max-w-md w-full text-center p-6 shadow-lg">
-        <CardContent>
-          <h1 className="text-2xl font-semibold mb-4">CityEats Insight 🍴</h1>
-          <p className="text-muted-foreground mb-4">
-            Explore food insights from Indian cities.
-          </p>
-          <Button>Get Started</Button>
-        </CardContent>
-      </Card>
+    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 transition-colors">
+      <Navbar />
+      <main className="pt-4">
+        <Routes>
+          <Route path="/" element={<CitySearch onSearch={setData} />} />
+          <Route path="/insights" element={<CityInsights data={data} />} />
+        </Routes>
+      </main>
     </div>
   );
 }

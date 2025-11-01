@@ -33,7 +33,10 @@ def aggregate_data(city, analyzed_comments):
     return output
 
 
-def clean_gemini_output(raw_text: str):
+import json
+import re
+
+def clean_gemini_output(raw_text):
     """
     Cleans Gemini output like:
     ```json
@@ -43,33 +46,46 @@ def clean_gemini_output(raw_text: str):
         "major_complaints": [...]
     }
     ```
-    and returns a parsed Python dict.
+    Returns a parsed Python dict safely, handling both dict and string responses.
     """
     if not raw_text:
         return {"error": "Empty AI response"}
 
-    # Remove markdown fences and language hints
+    # 🧩 Handle non-string inputs gracefully
+    if isinstance(raw_text, dict):
+        # Already parsed JSON
+        return raw_text
+    elif isinstance(raw_text, list):
+        # Join list elements if Gemini returned list of chunks
+        raw_text = " ".join(map(str, raw_text))
+    else:
+        # Ensure it's a string
+        raw_text = str(raw_text)
+
+    # 🧼 Remove markdown fences and language hints
     text = raw_text.strip()
     text = re.sub(r"^```json\s*|\s*```$", "", text.strip())
 
-    # Extract the inner JSON (handles escaped \n)
-    text = text.replace("\\n", "\n").replace("\\\"", "\"").strip()
+    # 🧹 Clean escaped characters
+    text = text.replace("\\n", "\n").replace('\\"', '"').strip()
 
-    # Try to find the first valid JSON object
+    # 🎯 Find the first valid JSON object in the text
     match = re.search(r"\{[\s\S]*\}", text)
     if not match:
         return {"error": "No valid JSON found", "raw": raw_text}
 
     json_str = match.group(0)
 
+    # 🧠 Try to parse JSON
     try:
-        # Parse to Python dict
         data = json.loads(json_str)
     except json.JSONDecodeError:
-        # Attempt light cleaning
-        fixed = json_str.replace("'", '"')
-        data = json.loads(fixed)
+        try:
+            # Fallback: replace single quotes with double quotes
+            fixed = json_str.replace("'", '"')
+            data = json.loads(fixed)
+        except Exception as e:
+            return {"error": f"JSON parse failed: {e}", "raw": raw_text}
 
-    # Return the clean structure
     return data
 
