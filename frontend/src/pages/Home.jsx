@@ -8,7 +8,7 @@ export default function Home() {
   const [city, setCity] = useState("");
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
-  const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+  const API_BASE_URL = "https://cityeatsinsight-backend.vercel.app"
 
   const fetchInsights = async () => {
     if (!city.trim()) return;
