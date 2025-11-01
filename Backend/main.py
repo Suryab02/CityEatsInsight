@@ -11,10 +11,10 @@ from cache_manager import load_cache, save_cache
 
 app = FastAPI(title="CityEatsInsight API")
 
-# CORS
+
 FRONTEND_ORIGINS = [
     "http://localhost:5173",
-    "http://city-eats-insight.vercel.app/"
+    "https://city-eats-insight.vercel.app"
 ]
 
 # Security headers middleware
