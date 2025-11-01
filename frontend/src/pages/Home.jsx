@@ -8,13 +8,14 @@ export default function Home() {
   const [city, setCity] = useState("");
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
   const fetchInsights = async () => {
     if (!city.trim()) return;
     setLoading(true);
     setData(null);
     try {
-      const res = await fetch(`http://localhost:8000/insights/${city}`);
+      const res = await fetch(`${API_BASE_URL}/insights/${city}`);
       const json = await res.json();
       setData(json);
     } catch (err) {
@@ -72,4 +73,5 @@ export default function Home() {
       </div>
     </motion.div>
   );
+  console.log(API_BASE_URL)
 }

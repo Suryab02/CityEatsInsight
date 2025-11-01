@@ -1,6 +1,14 @@
+import tempfile
 import json, os, time
 
 CACHE_DIR = "data"
+
+# Automatically uses /tmp on Vercel, data/ locally
+if os.environ.get("VERCEL"):
+    CACHE_DIR = os.path.join(tempfile.gettempdir(), "city_eats_cache")
+else:
+    CACHE_DIR = "data"
+
 CACHE_EXPIRY_HOURS = 6  # refresh every 6 hours
 
 os.makedirs(CACHE_DIR, exist_ok=True)

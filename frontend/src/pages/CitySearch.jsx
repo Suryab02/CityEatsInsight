@@ -27,6 +27,9 @@ export default function CitySearch({ onSearch }) {
     "Goa",
   ];
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+
   // Load recent cities
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("recentCities")) || [];
@@ -43,7 +46,7 @@ export default function CitySearch({ onSearch }) {
     const fetchSuggestions = async () => {
       try {
         const res = await fetch(
-          `http://127.0.0.1:8000/city_suggestions/${city.toLowerCase()}`
+          `${API_BASE_URL}/city_suggestions/${city.toLowerCase()}`
         );
         const data = await res.json();
         setSuggestions(data.results || []);
@@ -88,7 +91,7 @@ export default function CitySearch({ onSearch }) {
     setLoading(true);
     try {
       const res = await fetch(
-        `http://127.0.0.1:8000/insights/${searchCity.toLowerCase()}`
+        `${API_BASE_URL}/insights/${searchCity.toLowerCase()}`
       );
       const data = await res.json();
       onSearch(data);
