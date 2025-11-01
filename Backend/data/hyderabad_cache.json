@@ -1,0 +1,98 @@
+{
+  "city": "hyderabad",
+  "insights": [
+    {
+      "title": "Suggestions for best food Places in Hitech City(Hyderabad)",
+      "url": "https://reddit.com/r/hyderabad/comments/1ok0do6/suggestions_for_best_food_places_in_hitech/",
+      "score": 2,
+      "summary": {
+        "city_overview": "Discussions focus on recommendations for Biryani and South Indian food in Hyderabad, specifically in the Hitech City area.",
+        "top_recommendations": [
+          {
+            "category": "Biryani / Non-Veg",
+            "restaurant_name": "Peacock Prime Restaurant",
+            "popular_dish": "Biryani",
+            "reason": "Best flavor"
+          },
+          {
+            "category": "Pure Veg",
+            "restaurant_name": "Bisi Bisi",
+            "popular_dish": "Dosa",
+            "reason": "Recommended option"
+          }
+        ],
+        "major_complaints": []
+      }
+    },
+    {
+      "title": "Which local food spot do you think still serves the real Hyderabadi taste?",
+      "url": "https://reddit.com/r/hyderabad/comments/1oiwjt9/which_local_food_spot_do_you_think_still_serves/",
+      "score": 54,
+      "summary": {
+        "city_overview": "Discussions revolve around the decline in authentic Hyderabadi taste, particularly concerning biryani, and food safety concerns in popular restaurants.",
+        "top_recommendations": [
+          {
+            "category": "Biryani / Non-Veg",
+            "restaurant_name": "Crystal",
+            "popular_dish": "Biryani",
+            "reason": "Listed as a place for Biryani."
+          },
+          {
+            "category": "Biryani / Non-Veg",
+            "restaurant_name": "Mandar",
+            "popular_dish": "Biryani",
+            "reason": "Listed as a place for Biryani."
+          },
+          {
+            "category": "Biryani / Non-Veg",
+            "restaurant_name": "Shah Ghouse Kondapur",
+            "popular_dish": "Nihari",
+            "reason": "Nihari is good."
+          },
+          {
+            "category": "Desserts",
+            "restaurant_name": "Shah Ghouse",
+            "popular_dish": "Khubani ka meetha/Double ka Meetha",
+            "reason": "Listed as serving the desserts."
+          },
+          {
+            "category": "Desserts",
+            "restaurant_name": "Morine Bakery",
+            "popular_dish": "Tie biscuits and Osmania biscuits",
+            "reason": "Listed as serving the biscuits."
+          }
+        ],
+        "major_complaints": [
+          {
+            "restaurant_name": "Popular Outlets",
+            "issue": "Food safety is a joke in this city",
+            "sentiment": "Negative"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Best cafe and best thing to have!",
+      "url": "https://reddit.com/r/hyderabad/comments/1oi626v/best_cafe_and_best_thing_to_have/",
+      "score": 0,
+      "summary": {
+        "city_overview": "Discussions focus on cafes good for work and dates.",
+        "top_recommendations": [
+          {
+            "category": "Cafe for Work",
+            "restaurant_name": "Brewtiful",
+            "popular_dish": "Hummus Toast",
+            "reason": "Beautiful and quiet cafe, good for self exploration as well as dates."
+          },
+          {
+            "category": "Cafe for Work",
+            "restaurant_name": "Coffee Sangam",
+            "popular_dish": "Coffee",
+            "reason": "Heard great reviews"
+          }
+        ],
+        "major_complaints": []
+      }
+    }
+  ]
+}

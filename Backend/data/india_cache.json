@@ -1,0 +1,50 @@
+{
+  "city": "india",
+  "insights": [
+    {
+      "title": "I enjoy traveling in India, but I can't recommend it to anyone.",
+      "url": "https://reddit.com/r/india/comments/1n49a6m/i_enjoy_traveling_in_india_but_i_cant_recommend/",
+      "score": 737,
+      "summary": {
+        "city_overview": "Discussions focus on negative tourist experiences, highlighting scams and safety concerns.",
+        "major_complaints": [
+          {
+            "restaurant_name": "Shady Hotel",
+            "issue": "Attempted scam by auto driver leading to a shady hotel demanding excessive payment.",
+            "sentiment": "Negative"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Street Food Preparation",
+      "url": "https://reddit.com/r/india/comments/1ht5rp7/street_food_preparation/",
+      "score": 40,
+      "summary": {
+        "city_overview": "Discussions focus on the questionable hygiene and cost-cutting practices in street food preparation in India, raising concerns about food safety.",
+        "major_complaints": [
+          {
+            "restaurant_name": "Roadside Pizza Stalls",
+            "issue": "Use of substandard ingredients and poor hygiene to offer extremely low prices.",
+            "sentiment": "Negative"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Street food like this makes me hopeful about hygiene awareness in India ",
+      "url": "https://reddit.com/r/india/comments/1hqacaz/street_food_like_this_makes_me_hopeful_about/",
+      "score": 2217,
+      "summary": {
+        "city_overview": "Discussions touch upon hygiene awareness regarding street food and express disappointment with the taste of certain chain restaurants.",
+        "major_complaints": [
+          {
+            "restaurant_name": "Paradise (Biryani)",
+            "issue": "Bland taste compared to chaats and North-West Indian food.",
+            "sentiment": "Negative"
+          }
+        ]
+      }
+    }
+  ]
+}

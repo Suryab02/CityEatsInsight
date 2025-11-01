@@ -1,0 +1,65 @@
+{
+  "city": "delhi",
+  "insights": [
+    {
+      "title": "What's wrong with Dwarka? Frustrated by lack of street food options",
+      "url": "https://reddit.com/r/delhi/comments/1ojruad/whats_wrong_with_dwarka_frustrated_by_lack_of/",
+      "score": 0,
+      "summary": {
+        "city_overview": "Discussions center on the perceived lack of quality street food options in certain areas of Delhi.",
+        "major_complaints": [
+          {
+            "restaurant_name": "Dwarka Street Food",
+            "issue": "Perceived lack of quality and authenticity in street food options, specifically criticizing 'matar kulcha' and the quality of 'shawarma' which is considered an inferior chicken keema roll.",
+            "sentiment": "Negative"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Cafe suggestions for Birthday",
+      "url": "https://reddit.com/r/delhi/comments/1oemz8g/cafe_suggestions_for_birthday/",
+      "score": 1,
+      "summary": {
+        "city_overview": "Discussions focus on cafe recommendations in Delhi, particularly for occasions like birthdays.",
+        "top_recommendations": [
+          {
+            "category": "Cafe for Work",
+            "restaurant_name": "QD cafe",
+            "popular_dish": "N/A",
+            "reason": "Recommended in Lajpat Nagar"
+          },
+          {
+            "category": "Cafe for Work",
+            "restaurant_name": "AMA cafe",
+            "popular_dish": "N/A",
+            "reason": "Recommended in Majnu ka Tila"
+          }
+        ],
+        "major_complaints": []
+      }
+    },
+    {
+      "title": "Guys help me find underrated cottage cafe in delhi",
+      "url": "https://reddit.com/r/delhi/comments/1oaggiv/guys_help_me_find_underrated_cottage_cafe_in_delhi/",
+      "score": 13,
+      "summary": {
+        "city_overview": "Discussions focus on finding underrated cottage cafes in Delhi.",
+        "top_recommendations": [
+          {
+            "category": "Cafe for Work",
+            "restaurant_name": "Kala Cafe",
+            "popular_dish": "Food",
+            "reason": "Great food and ambience, more affordable."
+          },
+          {
+            "category": "Cafe for Work",
+            "restaurant_name": "Cafe Lota",
+            "popular_dish": "Food",
+            "reason": "Great food and ambience, though a bit expensive."
+          }
+        ]
+      }
+    }
+  ]
+}

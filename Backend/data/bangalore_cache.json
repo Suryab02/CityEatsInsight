@@ -1,0 +1,90 @@
+{
+  "city": "bangalore",
+  "insights": [
+    {
+      "title": "Do I Recommend an Electric Autorickshaws to Security guard's son?",
+      "url": "https://reddit.com/r/bangalore/comments/1bpri9d/do_i_recommend_an_electric_autorickshaws_to/",
+      "score": 3,
+      "summary": {
+        "city_overview": "Discussions focus on alternative business options to auto rickshaws, with food-related suggestions being prominent.",
+        "top_recommendations": [
+          {
+            "category": "Budget Food",
+            "restaurant_name": "Iyengar Bakery",
+            "popular_dish": "Unknown",
+            "reason": "Always has customers and is a viable business option."
+          }
+        ],
+        "major_complaints": []
+      }
+    },
+    {
+      "title": "Im in bangalore, i want to know which is must try ice cream spot",
+      "url": "https://reddit.com/r/bangalore/comments/1b66m6a/im_in_bangalore_i_want_to_know_which_is_must_try/",
+      "score": 107,
+      "summary": {
+        "city_overview": "Discussions focus on recommendations for ice cream spots and acknowledging the FOMO (Fear Of Missing Out) around popular Bangalore attractions and restaurants.",
+        "top_recommendations": [
+          {
+            "category": "Desserts",
+            "restaurant_name": "Unknown",
+            "popular_dish": "Ice cream",
+            "reason": "Must-try spot"
+          }
+        ]
+      }
+    },
+    {
+      "title": "New to Bangalore and haven't yet been impressed with the food here. Please recommend places that will change my opinions. ",
+      "url": "https://reddit.com/r/bangalore/comments/1asxeym/new_to_bangalore_and_havent_yet_been_impressed/",
+      "score": 0,
+      "summary": {
+        "city_overview": "Bangalore's food scene is viewed as lacking compared to other major Indian cities like Bombay or Delhi, but some specific cuisines and dishes receive praise.",
+        "top_recommendations": [
+          {
+            "category": "North Indian",
+            "restaurant_name": "Gramin",
+            "popular_dish": "North Indian Thali",
+            "reason": "Authentic taste"
+          },
+          {
+            "category": "Pizza",
+            "restaurant_name": "Chez Marrianick",
+            "popular_dish": "Pizza",
+            "reason": "Great pizza and bakery items"
+          },
+          {
+            "category": "Cafe",
+            "restaurant_name": "The Hole in the Wall Cafe",
+            "popular_dish": "Pancakes",
+            "reason": "Frequently ordered pancakes"
+          },
+          {
+            "category": "Non-Veg",
+            "restaurant_name": "Empire",
+            "popular_dish": "Fish Fillet Burger",
+            "reason": "Perfectly cooked fish"
+          },
+          {
+            "category": "North Indian",
+            "restaurant_name": "Eshmeet da Dhaba",
+            "popular_dish": "Butter Chicken and Garlic Naan",
+            "reason": "Recommended for Butter Chicken"
+          }
+        ],
+        "major_complaints": [
+          {
+            "restaurant_name": "Empire Bellandur Branch",
+            "issue": "Chicken is often overcooked or not cooked properly.",
+            "sentiment": "Negative"
+          },
+          {
+            "restaurant_name": "Kapoor's Cafe",
+            "issue": "Quality has gone down.",
+            "sentiment": "Negative"
+          }
+        ]
+      }
+    }
+  ]
+}
