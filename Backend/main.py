@@ -1,4 +1,4 @@
-import json, re
+import json, re, os , uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.base import BaseHTTPMiddleware
@@ -104,3 +104,7 @@ def city_suggestions(query: str):
     if not matches:
         matches = [city for city in CITIES if query in city.lower()]
     return {"results": matches[:30]}
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))  # Railway provides PORT automatically
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
