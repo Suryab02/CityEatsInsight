@@ -119,51 +119,6 @@ def analyze_city(city: str):
         return {"city": city, "insights": [], "error": str(e)}
 
 
-# ---- City Suggestions ----
-def load_cities():
-    """Load cities from JSON file with error handling"""
-    try:
-        # Try multiple possible paths
-        paths = [
-            "data/cities.json",
-            "./data/cities.json",
-            "/app/data/cities.json"
-        ]
-        for path in paths:
-            if os.path.exists(path):
-                with open(path, "r") as f:
-                    return json.load(f)
-        
-        # Return empty list if file not found
-        print("Warning: cities.json not found")
-        return []
-    except Exception as e:
-        print(f"Error loading cities.json: {e}")
-        return []
-
-
-CITIES = load_cities()
-
-
-@app.get("/city_suggestions/{query}")
-def city_suggestions(query: str):
-    """Get city suggestions based on query"""
-    if not CITIES:
-        return {"results": []}
-    
-    query = query.lower().strip()
-    if not query:
-        return {"results": CITIES[:30]}
-    
-    # First try exact prefix match
-    matches = [city for city in CITIES if city.lower().startswith(query)]
-    
-    # If no matches, try substring match
-    if not matches:
-        matches = [city for city in CITIES if query in city.lower()]
-    
-    return {"results": matches[:30]}
-
 
 # Vercel handler for serverless deployment
 # No need to run uvicorn directly on Vercel
