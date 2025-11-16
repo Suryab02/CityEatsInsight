@@ -14,18 +14,18 @@ reddit = praw.Reddit(
 
 # ------------------------- Keywords -------------------------
 POST_QUERY = (
-    '(title:"best restaurant" OR title:"food recommendation" OR title:"must try" '
+    '(title:"best restaurant" OR title:"food recommendation" OR title:"must try food" '
     'OR title:"food places" OR title:"local food" OR title:"good food" '
-    'OR title:"where to eat" OR title:"recommend" OR title:"cafe" OR title:"street food")'
+    'OR title:"where to eat" OR title:"recommend food" OR title:"street food")'
 )
 
 POST_KEYWORDS = [
-    "must try", "recommend", "suggest", "food places", "food spots",
-    "best places", "any recommendations", "where to eat", "what to eat",
+    "must try", "recommend food", "suggest", "food places", "food spots",
+    "best places for food", "any recommendations", "where to eat", "what to eat",
     "best restaurants", "local food", "food recommendations", "food guide",
-    "good food", "top 10 food", "hidden gems", "cheap eats", "affordable food",
+    "good food", "top 10 food", "hidden gems food", "cheap eats", "affordable food",
     "famous food", "popular restaurants", "must visit restaurants", "street food",
-    "breakfast places", "lunch spots", "dinner places", "foodie"
+    "breakfast places", "lunch spots", "dinner places", "foodie" , "famous food"
 ]
 
 FOOD_KEYWORDS = [
@@ -48,21 +48,26 @@ def is_food_comment(text: str) -> bool:
 
 
 # ------------------------- Main Function -------------------------
-def get_city_posts(city: str):
+def get_city_posts(city: str , count: int):
     """
     Fetch Reddit posts about food in a given city subreddit.
     Filters posts and comments to keep only food-related ones.
     Returns structured data for AI summarization.
     """
     subreddit_name = city.lower()
+    cities = ["hyderabad","bangalore","mumbai","delhi","chennai","kolkata","pune","ahmedabad","jaipur","surat","lucknow","nagpur","vizag","coimbatore","bhopal","indore","noida","gurgaon","thane","chandigarh"]
     data = []
 
     try:
+        if subreddit_name not in cities:
+            return {"error": f"{subreddit_name} is not available. Please use city names only."}
+
         subreddit = reddit.subreddit(subreddit_name)
 
         # Step 1: Search for food-related posts
-        for post in subreddit.search(POST_QUERY, limit=40, sort="new"):
+        for post in subreddit.search(POST_QUERY, limit=40, sort="relevance"):
             full_text = (post.title + " " + getattr(post, "selftext", "")).strip()
+            print(post.title)
             if not is_food_post_related(full_text):
                 continue
 
@@ -72,6 +77,7 @@ def get_city_posts(city: str):
                 "score": post.score,
                 "comments_text": ""
             }
+            count += 1
 
             # Step 2: Fetch comments and filter only food-related ones
             post.comments.replace_more(limit=0)
@@ -89,5 +95,5 @@ def get_city_posts(city: str):
 
     except Exception as e:
         return {"error": str(e)}
-
-    return data
+    
+    return data , count

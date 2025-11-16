@@ -64,8 +64,9 @@ def home():
 def get_city_data(name: str):
     """Get raw posts for a specific city"""
     try:
-        posts = get_city_posts(name)
-        return {"city": name, "posts": posts}
+        count = 0
+        posts, count = get_city_posts(name,count)
+        return {"city": name, "posts": posts, "count":count}
     except Exception as e:
         return {"city": name, "posts": [], "error": str(e)}
 
@@ -78,9 +79,9 @@ def analyze_city(city: str):
         cached = load_cache(city)
         if cached:
             return {"cached": True, **cached}
-
+        count = 0
         # Get raw posts
-        raw_posts = get_city_posts(city)
+        raw_posts , count = get_city_posts(city,count)
         if isinstance(raw_posts, dict):
             posts = raw_posts.get("data", [])
         elif isinstance(raw_posts, list):
@@ -110,7 +111,7 @@ def analyze_city(city: str):
                 "summary": ai_summary
             })
 
-        result = {"city": city, "insights": insights}
+        result = {"city": city, "insights": insights,"count":count}
         save_cache(city, result)
         return result
 
