@@ -40,7 +40,7 @@ def analyze_text_with_gemini(text: str, city: str):
     Do not use phrases like 'users said' or 'the post describes'.
 
     Text:
-    {text[:10000]}  # cap to 10K chars to save tokens
+    {text[:50000]}  # cap to 10K chars to save tokens
     """
 
     try:

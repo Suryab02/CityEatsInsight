@@ -65,7 +65,7 @@ def get_city_posts(city: str , count: int):
         subreddit = reddit.subreddit(subreddit_name)
 
         # Step 1: Search for food-related posts
-        for post in subreddit.search(POST_QUERY, limit=40, sort="relevance"):
+        for post in subreddit.search(POST_QUERY, limit=40, sort="top"):
             full_text = (post.title + " " + getattr(post, "selftext", "")).strip()
             print(post.title)
             if not is_food_post_related(full_text):

@@ -75,10 +75,6 @@ def get_city_data(name: str):
 def analyze_city(city: str):
     """Get AI-generated insights for a city"""
     try:
-        # Check cache first
-        cached = load_cache(city)
-        if cached:
-            return {"cached": True, **cached}
         count = 0
         # Get raw posts
         raw_posts , count = get_city_posts(city,count)
@@ -94,7 +90,7 @@ def analyze_city(city: str):
 
         # Analyze top posts
         insights = []
-        for post in posts[:3]:
+        for post in posts[:5]:
             combined_text = f"{post.get('title', '')}\n{post.get('comments_text', '')}".strip()
             if not combined_text:
                 continue
