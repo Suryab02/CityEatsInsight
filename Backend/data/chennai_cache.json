@@ -1,0 +1,69 @@
+{
+  "city": "chennai",
+  "insights": [
+    {
+      "title": "Suggest street food",
+      "url": "https://reddit.com/r/Chennai/comments/1pagq19/suggest_street_food/",
+      "score": 58,
+      "summary": {
+        "city_overview": "Discussions in chennai focus on dosa and local dining experiences.",
+        "top_recommendations": [
+          {
+            "category": "Popular Dish",
+            "restaurant_name": "chennai Local Favorites",
+            "popular_dish": "Dosa",
+            "reason": "Highly discussed (1 mentions)"
+          }
+        ],
+        "major_complaints": []
+      }
+    },
+    {
+      "title": "Good food around Vels University",
+      "url": "https://reddit.com/r/Chennai/comments/1pougkw/good_food_around_vels_university/",
+      "score": 5,
+      "summary": {
+        "city_overview": "Discussions in chennai focus on biryani, mutton and local dining experiences.",
+        "top_recommendations": [
+          {
+            "category": "Popular Dish",
+            "restaurant_name": "chennai Local Favorites",
+            "popular_dish": "Biryani",
+            "reason": "Highly discussed (3 mentions)"
+          },
+          {
+            "category": "Popular Dish",
+            "restaurant_name": "chennai Local Favorites",
+            "popular_dish": "Mutton",
+            "reason": "Highly discussed (1 mentions)"
+          }
+        ],
+        "major_complaints": []
+      }
+    },
+    {
+      "title": "Which food places to explore at sowcarpet",
+      "url": "https://reddit.com/r/Chennai/comments/1qocnj7/which_food_places_to_explore_at_sowcarpet/",
+      "score": 7,
+      "summary": {
+        "city_overview": "Discussions in chennai focus on sandwich, juice and local dining experiences.",
+        "top_recommendations": [
+          {
+            "category": "Popular Dish",
+            "restaurant_name": "chennai Local Favorites",
+            "popular_dish": "Sandwich",
+            "reason": "Highly discussed (5 mentions)"
+          },
+          {
+            "category": "Popular Dish",
+            "restaurant_name": "chennai Local Favorites",
+            "popular_dish": "Juice",
+            "reason": "Highly discussed (2 mentions)"
+          }
+        ],
+        "major_complaints": []
+      }
+    }
+  ],
+  "count": 3
+}

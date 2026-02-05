@@ -1,0 +1,133 @@
+{
+  "city": "pune",
+  "insights": [
+    {
+      "title": "Good food, better company,best filter coffee \u2705",
+      "url": "https://reddit.com/r/pune/comments/1jfm8uj/good_food_better_companybest_filter_coffee/",
+      "score": 174,
+      "summary": {
+        "city_overview": "Discussions in pune focus on coffee, dosa, rice and local dining experiences.",
+        "top_recommendations": [
+          {
+            "category": "Popular Dish",
+            "restaurant_name": "pune Local Favorites",
+            "popular_dish": "Coffee",
+            "reason": "Highly discussed (3 mentions)"
+          },
+          {
+            "category": "Popular Dish",
+            "restaurant_name": "pune Local Favorites",
+            "popular_dish": "Dosa",
+            "reason": "Highly discussed (1 mentions)"
+          },
+          {
+            "category": "Popular Dish",
+            "restaurant_name": "pune Local Favorites",
+            "popular_dish": "Rice",
+            "reason": "Highly discussed (1 mentions)"
+          }
+        ],
+        "major_complaints": []
+      }
+    },
+    {
+      "title": "Overhyped Food Places",
+      "url": "https://reddit.com/r/pune/comments/1hv1av3/overhyped_food_places/",
+      "score": 171,
+      "summary": {
+        "city_overview": "Discussions in pune focus on burger, chai and local dining experiences.",
+        "top_recommendations": [
+          {
+            "category": "Popular Dish",
+            "restaurant_name": "pune Local Favorites",
+            "popular_dish": "Burger",
+            "reason": "Highly discussed (2 mentions)"
+          },
+          {
+            "category": "Popular Dish",
+            "restaurant_name": "pune Local Favorites",
+            "popular_dish": "Chai",
+            "reason": "Highly discussed (1 mentions)"
+          }
+        ],
+        "major_complaints": []
+      }
+    },
+    {
+      "title": "Opinion: most food places in Pune are overhyped",
+      "url": "https://reddit.com/r/pune/comments/qsc2et/opinion_most_food_places_in_pune_are_overhyped/",
+      "score": 140,
+      "summary": {
+        "city_overview": "Discussions in pune focus on coffee, thali and local dining experiences.",
+        "top_recommendations": [
+          {
+            "category": "Popular Dish",
+            "restaurant_name": "pune Local Favorites",
+            "popular_dish": "Coffee",
+            "reason": "Highly discussed (1 mentions)"
+          },
+          {
+            "category": "Popular Dish",
+            "restaurant_name": "pune Local Favorites",
+            "popular_dish": "Thali",
+            "reason": "Highly discussed (1 mentions)"
+          }
+        ],
+        "major_complaints": []
+      }
+    },
+    {
+      "title": "Shocking unhygienic incident / experience @ Street food Vendor \"POLEKAR'S IDLI FRY & HEALTH FOOD\" & \"SHRI SAMARTHA KRUPA SNACK CENTER\" in Karve Nagar, near Cummins college.",
+      "url": "https://reddit.com/r/pune/comments/15wydku/shocking_unhygienic_incident_experience_street/",
+      "score": 134,
+      "summary": {
+        "city_overview": "Discussions in pune focus on idli, sandwich and local dining experiences.",
+        "top_recommendations": [
+          {
+            "category": "Popular Dish",
+            "restaurant_name": "pune Local Favorites",
+            "popular_dish": "Idli",
+            "reason": "Highly discussed (1 mentions)"
+          },
+          {
+            "category": "Popular Dish",
+            "restaurant_name": "pune Local Favorites",
+            "popular_dish": "Sandwich",
+            "reason": "Highly discussed (1 mentions)"
+          }
+        ],
+        "major_complaints": []
+      }
+    },
+    {
+      "title": "absolute 10/10 food places",
+      "url": "https://reddit.com/r/pune/comments/1avezff/absolute_1010_food_places/",
+      "score": 100,
+      "summary": {
+        "city_overview": "Discussions in pune focus on biryani, chicken, burger and local dining experiences.",
+        "top_recommendations": [
+          {
+            "category": "Popular Dish",
+            "restaurant_name": "pune Local Favorites",
+            "popular_dish": "Biryani",
+            "reason": "Highly discussed (3 mentions)"
+          },
+          {
+            "category": "Popular Dish",
+            "restaurant_name": "pune Local Favorites",
+            "popular_dish": "Chicken",
+            "reason": "Highly discussed (3 mentions)"
+          },
+          {
+            "category": "Popular Dish",
+            "restaurant_name": "pune Local Favorites",
+            "popular_dish": "Burger",
+            "reason": "Highly discussed (3 mentions)"
+          }
+        ],
+        "major_complaints": []
+      }
+    }
+  ],
+  "count": 39
+}

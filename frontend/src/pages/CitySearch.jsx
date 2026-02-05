@@ -23,11 +23,13 @@ export default function CitySearch({ onSearch }) {
     "Pune",
     "Kolkata",
     "Ahmedabad",
-    "Jaipur",
-    "Goa",
   ];
 
-const API_BASE_URL = "https://cityeatsinsight-backend.vercel.app"
+
+  // Use localhost for local development, production URL otherwise
+  const API_BASE_URL = import.meta.env.DEV
+    ? "http://localhost:8000"
+    : "https://cityeatsinsight-backend.vercel.app"
 
 
   // Load recent cities
@@ -166,40 +168,39 @@ const API_BASE_URL = "https://cityeatsinsight-backend.vercel.app"
 
   return (
     <div
-      className="flex flex-col items-center justify-center min-h-[90vh] px-4 text-center relative"
+      className="flex flex-col items-center justify-center min-h-[90vh] px-6 text-center relative"
       ref={containerRef}
     >
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"
+        className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"
       >
-        Discover India’s Best Food Spots 🍛
+        Discover Food Spots 🍛
       </motion.h1>
 
-      <p className="text-base text-neutral-600 dark:text-neutral-400 max-w-md mb-8">
-        Explore food culture, hidden gems, and restaurant insights from Reddit
-        discussions in cities across India.
+      <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-xl mb-12">
+        Explore food culture and restaurant insights from Reddit discussions worldwide.
       </p>
 
       {/* Input + Search + Auto Detect */}
-      <div className="flex w-full max-w-md flex-col gap-2 relative">
-        <div className="flex gap-2">
+      <div className="flex w-full max-w-lg flex-col gap-3 relative">
+        <div className="flex gap-3">
           <Input
-            placeholder="Enter a city (e.g. Hyderabad, Pune, Delhi)"
+            placeholder="Enter a city (e.g. Hyderabad, Paris, Tokyo)"
             value={city}
             onChange={(e) => {
               setCity(e.target.value);
               setActiveIndex(-1);
             }}
             onKeyDown={handleKeyDown}
-            className="flex-1 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-500"
+            className="flex-1 h-12 text-base shadow-sm"
           />
           <Button
             onClick={() => handleSearch()}
             disabled={loading}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:opacity-90"
+            className="h-12 px-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:opacity-90 shadow-md"
           >
             {loading ? "Searching..." : "Search"}
           </Button>
@@ -209,23 +210,22 @@ const API_BASE_URL = "https://cityeatsinsight-backend.vercel.app"
           variant="outline"
           onClick={handleDetectLocation}
           disabled={detecting}
-          className="text-sm mt-1 border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition"
+          className="text-sm h-10 shadow-sm"
         >
           {detecting ? "Detecting..." : "📍 Detect My Location"}
         </Button>
 
         {/* Dropdown suggestions */}
         {suggestions.length > 0 && (
-          <ul className="absolute top-full mt-1 w-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg shadow-md z-10 text-left max-h-56 overflow-y-auto">
+          <ul className="absolute top-full mt-2 w-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg shadow-lg z-10 text-left max-h-60 overflow-y-auto">
             {suggestions.map((s, i) => (
               <li
                 key={i}
                 onClick={() => handleSelectCity(s)}
-                className={`px-4 py-2 cursor-pointer text-sm transition-colors duration-150 ${
-                  i === activeIndex
-                    ? "bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
-                    : "hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-200"
-                }`}
+                className={`px-4 py-3 cursor-pointer text-sm transition-colors ${i === activeIndex
+                    ? "bg-neutral-100 dark:bg-neutral-800"
+                    : "hover:bg-neutral-50 dark:hover:bg-neutral-800"
+                  }`}
               >
                 {s}
               </li>
@@ -236,58 +236,42 @@ const API_BASE_URL = "https://cityeatsinsight-backend.vercel.app"
 
       {/* Trending Cities */}
       <motion.div
-        className="mt-10"
+        className="mt-16"
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <p className="text-sm text-neutral-500 mb-3">🔥 Trending Cities</p>
-        <motion.div
-          className="flex flex-wrap justify-center gap-2"
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { staggerChildren: 0.05 } },
-          }}
-        >
+        <p className="text-sm text-neutral-500 mb-4">🔥 Trending Cities</p>
+        <div className="flex flex-wrap justify-center gap-3">
           {trendingCities.map((cityName) => (
             <motion.button
               key={cityName}
               onClick={() => handleSelectCity(cityName)}
-              variants={{
-                hidden: { opacity: 0, scale: 0.9 },
-                visible: { opacity: 1, scale: 1 },
-              }}
-              whileHover={{ scale: 1.06 }}
-              className="px-4 py-2 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 rounded-full text-sm 
-              hover:bg-neutral-200 dark:hover:bg-neutral-700 hover:text-neutral-900 dark:hover:text-neutral-100 
-              transition-all duration-200 shadow-sm hover:shadow-md"
+              whileHover={{ scale: 1.05 }}
+              className="px-5 py-2.5 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 rounded-full text-sm font-medium hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-all shadow-sm"
             >
               {cityName}
             </motion.button>
           ))}
-        </motion.div>
+        </div>
       </motion.div>
 
       {/* Recently Searched */}
       {recentCities.length > 0 && (
         <motion.div
-          className="mt-8"
+          className="mt-12"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-sm text-neutral-500 mb-3">🕒 Recently Searched</p>
-          <div className="flex flex-wrap justify-center gap-2">
+          <p className="text-sm text-neutral-500 mb-4">🕒 Recently Searched</p>
+          <div className="flex flex-wrap justify-center gap-3">
             {recentCities.map((recent, i) => (
               <motion.button
                 key={i}
                 onClick={() => handleSelectCity(recent)}
                 whileHover={{ scale: 1.05 }}
-                className="px-4 py-2 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 rounded-full text-sm 
-                hover:bg-neutral-200 dark:hover:bg-neutral-700 hover:text-neutral-900 dark:hover:text-neutral-100 
-                transition-all duration-200 shadow-sm hover:shadow-md"
+                className="px-5 py-2.5 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 rounded-full text-sm font-medium hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-all shadow-sm"
               >
                 {recent}
               </motion.button>
